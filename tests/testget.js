@@ -1,5 +1,6 @@
 var meli = require('../index.js');
 var sys = require("sys");
+var config = require("../config.js");
 
 var meliObject = new meli.Meli();
 
@@ -30,8 +31,8 @@ stdin.addListener("data", function (d) {
         });
     }
     else if (d == 2) {
-        meliObject.get('users/77169310', function (err, res) {
-            console.log(err, res);
+        meliObject.get('users/101897633?access_token=' + config.config.access_token, function (err, res) {
+             console.log(err, res);
         });
     }
     else if (d == 3) {

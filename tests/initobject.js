@@ -6,11 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 
+var m = require('./config.js');
 var m = require('./index.js');
 
-var meliObj = new m.Meli('4416176012263899', 'ZB0IaYm6BxVHsX2OE1RkqExvCu0VZC0F',
-'APP_USR-4416176012263899-091718-e613af5173934931863c7d2879130dc4__D_M__-77169310'
-);
+var meliObj = new m.Meli(config.config.client_id, config.config.secret_key, config.config.access_token);
 
 var def = function () {
     console.log(arguments);
