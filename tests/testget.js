@@ -26,7 +26,7 @@ stdin.addListener("data", function (d) {
     var end = d.toString();
 
     if (d == 1) {
-        meliObject.get('sites/MLA/categories', function (err, res) {
+        meliObject.get('sites/' + config.config.site_id +'/categories', function (err, res) {
             console.log(err, res);
         });
     }
