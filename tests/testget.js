@@ -1,14 +1,18 @@
 var meli = require('../index.js');
 var sys = require("sys");
 var config = require("../config.js");
-
+const opn = require('opn');
 var meliObject = new meli.Meli();
+
+var express = require('express');
+var app = express();
 
 
 var examples = {
-    1: "Get categories from mercado libre argentina",
-    2: "Get users/77169310",
-    3: "Get users?ids=[n,n]"
+    1: "Get your country's category tree",
+    2: "Get your user private data with access_token",
+    3: "Get multiple users at once",
+    4: "oAuth example"
 };
 function printOptions() {
     console.log("Ingrese un numero:");
@@ -17,7 +21,6 @@ function printOptions() {
 
     }
 }
-
 
 
 printOptions();
@@ -31,10 +34,10 @@ stdin.addListener("data", function (d) {
         });
     }
     else if (d == 2) {
-        meliObject.get('users/101897633?access_token=' + config.config.access_token, function (err, res) {
+        meliObject.get('users/me?access_token=' + config.config.access_token, function (err, res) {
              console.log(err, res);
         });
-    }
+    }   
     else if (d == 3) {
         meliObject.get('users', {
             ids: [145925943, 145925951]
@@ -43,9 +46,14 @@ stdin.addListener("data", function (d) {
         });
     }
     else if (d == 4) {
-
-    }
+    meliObject.getAuthURL(config.config.redirect_uri, function (authUrl) {
+        opn(authUrl);  
+        });
+}
 });
+
+
+
 
 
 

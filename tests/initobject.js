@@ -9,7 +9,7 @@
 var m = require('./config.js');
 var m = require('./index.js');
 
-var meliObj = new m.Meli(config.config.client_id, config.config.secret_key, config.config.access_token);
+var meliObj = new m.Meli(config.config.client_id, config.config.secret_key, [access_token], [refresh_token]);
 
 var def = function () {
     console.log(arguments);

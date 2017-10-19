@@ -17,13 +17,15 @@
   ],
   "dependencies": {
     "express": "^4.16.2",
-    "needle": "^0.11.0"
+    "needle": "^0.11.0",
+    "opn": "^5.1.0",
+    "request": "^2.83.0"
   },
   "engine": {
     "node": ">=0.6"
   },
   "scripts": {
     "start": "node app.js"
-},
+  },
   "license": "MIT"
 }
