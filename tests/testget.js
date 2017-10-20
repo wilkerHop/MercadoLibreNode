@@ -11,8 +11,7 @@ var app = express();
 var examples = {
     1: "Get your country's category tree",
     2: "Get your user private data with access_token",
-    3: "Get multiple users at once",
-    4: "oAuth example"
+    3: "Get multiple users at once"
 };
 function printOptions() {
     console.log("Ingrese un numero:");
@@ -45,15 +44,8 @@ stdin.addListener("data", function (d) {
             console.log(err, res);
         });
     }
-    else if (d == 4) {
-    meliObject.getAuthURL(config.config.redirect_uri, function (authUrl) {
-        opn(authUrl);  
-        });
 }
 });
-
-
-
 
 
 

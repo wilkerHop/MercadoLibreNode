@@ -73,7 +73,17 @@
                 <div class="col-sm-6 col-md-6">
                     <h3>oAuth</h3>
                     <p>First authenticate yourself. Authentication is the key to get the most ouf Mercado Libre's API.</p>
-                </div>
+                        <button id='auth'>auth</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+        $('#auth').click(function() {
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:5000/auth'
+    });
+});
+</script>
+               </div>
                 <div class="col-sm-6 col-md-6">
                     <h3>Get site</h3>
                     <p>Make a simple GET to <a href="https://api.mercadolibre.com/sites">sites resource</a> with your <b>$site_id</b> to obtain information about a a site. Like id, name, currencies, categories, and other settings.</p>
