@@ -2,7 +2,7 @@
     "name": "Mercado Libre NodeJS SDK",
     "description": "The official NodeJS SDK for Mercado Libre's Platform.",
     "website": "http://developers.mercadolibre.com/",
-    "repository": "https://github.com/mercadolibre/nodejs-sdk",
+    "repository": "https://github.com/fsolari/MercadoLibreNode",
     "logo": "https://mercadolibredevsite.s3.amazonaws.com/wp-content/uploads/2017/08/29205159/dev.jpg",
     "success_url": "/",
     "keywords": [
