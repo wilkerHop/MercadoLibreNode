@@ -11,7 +11,8 @@ var app = express();
 var examples = {
     1: "Get your country's category tree",
     2: "Get user data",
-    3: "Get multiple users at once"
+    3: "Get multiple users at once",
+    4: "Predict product category based on it's title"
 };
 function printOptions() {
     console.log("Ingrese un numero:");
@@ -36,6 +37,9 @@ stdin.addListener("data", function (d) {
     else if (d == 3) {
         getUsers();
     }
+    else if(d == 4){
+        predictCategory();
+    }
 });
 
 
@@ -56,6 +60,13 @@ var getUser = function(){
             ids: [145925943, 145925951]
         }, function (err, res) {
             console.log(err, res);
+        });
+    };
+
+    var predictCategory = function(){
+        var title = "Ipod%20Touch";
+        meliObject.get('/sites/'+ config.config.site_id +'/category_predictor/predict?title=' + title, function(err,res){
+            console.log(err,res);
         });
     };
 
