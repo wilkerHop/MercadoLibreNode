@@ -9,28 +9,32 @@ var app = express();
 
 var getCategories = function(){
         meliObject.get('sites/' + config.config.site_id +'/categories', function (err, res) {
-            console.log(err, res);
+        console.log(err, res);
+        return (err, res);
 });
     };
 
 var getUser = function(){
         meliObject.get('users/145925943', function (err, res) {
              console.log(err, res);
+             return (err, res);
 });
     };
-
-    var getUsers = function(){
+   
+var getUsers = function(){
         meliObject.get('users', {
             ids: [145925943, 145925951]
         }, function (err, res) {
             console.log(err, res);
+            return (err, res);
         });
     };
-
-    var predictCategory = function(){
+    
+var predictCategory = function(){
         var title = "Ipod%20Touch";
         meliObject.get('/sites/'+ config.config.site_id +'/category_predictor/predict?title=' + title, function(err,res){
             console.log(err,res);
+            return (err, res);
         });
     };
 
