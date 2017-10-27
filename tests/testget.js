@@ -38,11 +38,19 @@ var predictCategory = function(){
         });
     };
 
+    var getTrends = function(){
+    meliObject.get('/sites/'+ config.config.site_id +'/trends/search', function (err, res) {
+             console.log(err, res);
+             return (err, res);
+});
+    };
+
 var examples = {
     1: "Get your country's category tree",
     2: "Get user data",
     3: "Get multiple users at once",
-    4: "Predict product category based on it's title"
+    4: "Predict product category based on it's title",
+    5: "Get search trends for your country"
 };
 function printOptions() {
     console.log("Ingrese un numero:");
@@ -64,6 +72,9 @@ stdin.addListener("data", function (d) {
         case 3: getUsers();
         break;
         case 4: predictCategory();
+        break;
+        case 5: getTrends();
+        break;
     }
 });
 
