@@ -7,43 +7,7 @@ var meliObject = new meli.Meli();
 var express = require('express');
 var app = express();
 
-
-var examples = {
-    1: "Get your country's category tree",
-    2: "Get user data",
-    3: "Get multiple users at once",
-    4: "Predict product category based on it's title"
-};
-function printOptions() {
-    console.log("Ingrese un numero:");
-    for (var i in examples) {
-        console.log(i + ": " + examples[i]);
-
-    }
-}
-
-
-printOptions();
-var stdin = process.openStdin();
-stdin.addListener("data", function (d) {
-    var end = d.toString();
-
-    if (d == 1) {
-    getSites();
-    }
-    else if (d == 2) {
-    getUser();
-    }   
-    else if (d == 3) {
-        getUsers();
-    }
-    else if(d == 4){
-        predictCategory();
-    }
-});
-
-
-var getSites = function(){
+var getCategories = function(){
         meliObject.get('sites/' + config.config.site_id +'/categories', function (err, res) {
             console.log(err, res);
 });
@@ -69,5 +33,35 @@ var getUser = function(){
             console.log(err,res);
         });
     };
+
+var examples = {
+    1: "Get your country's category tree",
+    2: "Get user data",
+    3: "Get multiple users at once",
+    4: "Predict product category based on it's title"
+};
+function printOptions() {
+    console.log("Ingrese un numero:");
+    for (var i in examples) {
+        console.log(i + ": " + examples[i]);
+
+    }
+}
+
+printOptions();
+var stdin = process.openStdin();
+stdin.addListener("data", function (d) {
+    var end = Number(d);
+    switch(end){
+        case 1: getCategories();
+        break;
+        case 2: getUser();
+        break;
+        case 3: getUsers();
+        break;
+        case 4: predictCategory();
+    }
+});
+
 
 
