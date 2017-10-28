@@ -19,23 +19,6 @@ app.get('/', function (req, res) {
     });
 });
 
-app.get('/getCategories', function(req, res) {
-        var response = gets.getCategories();
-res.send(response);
-});
-
-app.get('/getUser', function(req, res) {
-    gets.getUser();
-});
-
-app.get('/getTrends', function(req, res) {
-    gets.getTrends();
-});
-
-app.get('/predictCategory', function(req, res) {
-   gets.predictCategory();
-});
-
 app.use(express.static(__dirname + '/assets'));
 
 app.listen(process.env.PORT || 5000, function () {

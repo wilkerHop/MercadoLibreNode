@@ -7,41 +7,36 @@ var express = require('express');
 var app = express();
 
 var getCategories = function(){
-    var r = meliObject.get('sites/' + config.config.site_id +'/categories', function (err, res) {
+    meliObject.get('sites/' + config.config.site_id +'/categories', function (err, res) {
         console.log(err, res);
-        return (r);
     });
 };
 
 var getUser = function(){
-    var r = meliObject.get('users/145925943', function (err, res) {
-       console.log(err, res);
-       return r;
-   });
+    meliObject.get('users/145925943', function (err, res) {
+     console.log(err, res);
+ });
 };
 
 var getUsers = function(){
-    var r = meliObject.get('users', {
+    meliObject.get('users', {
         ids: [145925943, 145925951]
     }, function (err, res) {
         console.log(err, res);
-        return r;
     });
 };
 
 var predictCategory = function(){
     var title = "Ipod%20Touch";
-    var r = meliObject.get('/sites/'+ config.config.site_id +'/category_predictor/predict?title=' + title, function(err,res){
+    meliObject.get('/sites/'+ config.config.site_id +'/category_predictor/predict?title=' + title, function(err,res){
         console.log(err,res);
-        return r;
     });
 };
 
 var getTrends = function(){
-    var r = meliObject.get('/sites/'+ config.config.site_id +'/trends/search', function (err, res) {
-       console.log(err, res);
-       return r;
-   });
+    meliObject.get('/sites/'+ config.config.site_id +'/trends/search', function (err, res) {
+     console.log(err, res);
+ });
 };
 
 var examples = {
@@ -76,9 +71,3 @@ stdin.addListener("data", function (d) {
         break;
     }
 });
-
-
-exports.getCategories = getCategories;
-exports.getUser = getUser;
-exports.getTrends = getTrends;
-exports.predictCategory = predictCategory;
