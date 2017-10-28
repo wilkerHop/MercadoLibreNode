@@ -8,7 +8,7 @@
     <meta name="description" content="Official NodeJs SDK for Mercado Libre's API.">
     <meta name="keywords" content="API, NodeJs, Mercado Libre, SDK, meli, integration, e-commerce">
     <title>Mercado Libre NodeJs SDK</title>
-   <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
@@ -52,30 +52,121 @@
                     <br />
                     <code>heroku git:remote -a <%= appname %></code>
                     <br /> This will create a local copy of the source code, and associate the Heroku app with your local repository.</p>
-                <p>Follow the offical Heroku's guide <a target="_blank" href="https://devcenter.heroku.com/articles/git">https://devcenter.heroku.com/articles/git</a> to deploy using the Heroku cli.</p>
-                <p>You'll now be set up to run the app locally, or deploy changes to Heroku.</p>
+                    <p>Follow the offical Heroku's guide <a target="_blank" href="https://devcenter.heroku.com/articles/git">https://devcenter.heroku.com/articles/git</a> to deploy using the Heroku cli.</p>
+                    <p>You'll now be set up to run the app locally, or deploy changes to Heroku.</p>
+                </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
+            <div class="row">
+                <h3>Examples</h3>
+                <p>
+                   Run the project by console and check the following examples, they will help you to start working with our API!
+                </p>
+                <p>
+                    Note that these examples work for MLA(Argentina) by default. If you'd like to try them in your own country, please, update this line in your project, with
+                    your own <b>$site_id</b> before executing them.
+                </p>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <h3>Get User</h3>
+                    <p>This example shows how you can get any MercadoLibre's user public information from our API. You only need to know the User_Id.</p>
+                    <p>You can concatenate up to 50 user_id to get all the information in only one request.</p>
+                    <button id='getUser'>Get User</button>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+                       $('#getUser').click(function() {
+                           $.ajax({
+                               type: 'GET',
+                               url: 'http://localhost:5000/getUser'
+                           });
+                       });
+                   </script>
+               </div>
+               <div class="col-sm-6 col-md-6">
+                <h3>Get Categories</h3>
+                <p>Every site has it's own category tree. This app is configured to work by default for MercadoLibre Argentina (MLA), so this example will retrieve MLA category's tree. <a href="https://github.com/fsolari/MercadoLibreNode/blob/master/config.js">Modify the site_id  on this file </a> if you want to try it for another country!</p>
+                <br>
+                <button id='getCategories'>Get Categories</button>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                <script type="text/javascript">
+                   $('#getCategories').click(function() {
+                       $.ajax({
+                           type: 'GET',
+                           url: 'http://localhost:5000/getCategories'
+                       });
+                   });
+               </script>
+           </div>
+       </div>
+       <hr>
+       <div class="row">
+        <div class="col-md-6">
+            <h3>Predict Category</h3>
+            <p>
+                To list an item in MercadoLibre, you need to know the category your product belongs to. Our Category Predictor resource uses Machine Learning to predict which category suits your product best, basing on it's title. And you can do it by simply making a GET. Try it out!
+            </p>
+            <button id='predictCategory'>Predict Category</button>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script type="text/javascript">
+               $('#predictCategory').click(function() {
+                   $.ajax({
+                       type: 'GET',
+                       url: 'http://localhost:5000/predictCategory'
+                   });
+               });
+           </script>
+       </div>
+       <div class="col-md-6">
+        <h3>Get Trends</h3>
+       <p>
+         User's are searching for keywords all over the world, and at all times.
+         Knowing what user's are searching can help you with your business!
+         Get the keywords that are trending in your country right now! </p>
+         <br>
+         <button id='getTrends'>Get Trends</button>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+         <script type="text/javascript">
+           $('#getTrends').click(function() {
+               $.ajax({
+                   type: 'GET',
+                   url: 'http://localhost:5000/getTrends'
+               });
+           });
+       </script>
+       </div>
+</div>
+<hr>
 
-        <div class="row">
-            <h3>Your Credentials</h3>
-            <div class="row-info col-sm-3 col-md-3">
-                <b>App_Id: <%= client_id %></b>
-            </div>
-            <div class="row-info col-sm-3 col-md-3">
-                <b>Secret_Key: <%= secret_key %></b>
-            </div>
-            <div class="row-info col-sm-3 col-md-3">
-                <b>Redirect_URI: <%= redirect_uri %></b>
-            </div>
-            <div class="row-info col-sm-3 col-md-3">
-                <b>Site_Id: <%= site_id %></b>
-            </div>
-        </div>
-        <hr>
-    </main>
+<div class="row">
+    <div>
+        <h3>Get started!</h3>
+        <p>Now you know how easy it is to get information from our API. Check the rest of the examples on the SDK, and modify them as you like in order to List an item, update it, and other actions.</p>
+        <p></p>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <h3>Your Credentials</h3>
+    <div class="row-info col-sm-3 col-md-3">
+        <b>App_Id: <%= client_id %></b>
+    </div>
+    <div class="row-info col-sm-3 col-md-3">
+        <b>Secret_Key: <%= secret_key %></b>
+    </div>
+    <div class="row-info col-sm-3 col-md-3">
+        <b>Redirect_URI: <%= redirect_uri %></b>
+    </div>
+    <div class="row-info col-sm-3 col-md-3">
+        <b>Site_Id: <%= site_id %></b>
+    </div>
+</div>
+<hr>
+</main>
 </body>
 
 </html>
