@@ -6,7 +6,7 @@
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fsolari/MercadoLibreNode.git"
+    "url": "https://github.com/mercadolibre/MercadoLibreNode.git"
   },
   "keywords": [
     "api",
